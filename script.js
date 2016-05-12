@@ -1,4 +1,10 @@
 let over140 = false;
+const buttonMarkup = `
+<button type="button" class="btn primary-btn tweet-btn tweet-over-140">
+  <span class="button-text tweeting-text">
+    <span class="Icon Icon--tweet"></span>Tweet over 140
+  </span>
+</button>`;
 
 // Listen for tweet length
 document.addEventListener('keyup', e => {
@@ -15,9 +21,11 @@ document.addEventListener('keyup', e => {
 });
 
 function showControls() {
-  console.log('show controls');
+  const holder = document.createElement('div');
+  holder.innerHTML = buttonMarkup;
+  document.querySelector('.TweetBoxToolbar-tweetButton').appendChild(holder.children[0]);
 }
 
 function hideControls() {
-  console.log('hide controls');
+  document.querySelector('.tweet-over-140').remove();
 }
