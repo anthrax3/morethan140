@@ -2,7 +2,6 @@ const tweetDialog = document.getElementById('global-tweet-dialog');
 const tweetBox = tweetDialog.querySelector('.tweet-box');
 const tweetButton = tweetDialog.querySelector('button.tweet-action');
 const urlPrefix = 'http://lukechilds.github.io/morethan140/#';
-let over140 = false;
 
 // Inject button
 const holder = document.createElement('div');
@@ -18,13 +17,7 @@ tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(button);
 // Listen for tweet length
 tweetBox.addEventListener('keyup', () => {
   const maxReached = tweetDialog.querySelector('.max-reached');
-  if(maxReached && !over140) {
-    over140 = true;
-    button.style.display = 'inline-block';
-  } else if(!maxReached && over140) {
-    over140 = false;
-    button.style.display = 'none';
-  }
+  button.style.display = maxReached ? 'inline-block' : 'none';
 });
 
 // Process over 140 tweet submissions
