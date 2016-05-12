@@ -34,3 +34,21 @@ button.addEventListener('click', () => {
   tweetButton.disabled = false;
   tweetButton.click();
 });
+
+// Decode over 140 tweets
+function decodeTweets() {
+  const links = document.querySelectorAll('.twitter-timeline-link:not(.not-over-140-tweet)');
+  for(let i = 0; i < links.length; i++) {
+    const link = links[i];
+    const expandedUrl = link.getAttribute('data-expanded-url');
+    if(expandedUrl.indexOf(urlPrefix) == 0) {
+      const encodedText = expandedUrl.substring(urlPrefix.length);
+      const decodedText = decodeURIComponent(encodedText);
+      link.parentElement.innerHTML = decodedText;
+    } else {
+      link.classList.add('not-over-140-tweet');
+    }
+  }
+}
+decodeTweets();
+setInterval(decodeTweets, 100);
