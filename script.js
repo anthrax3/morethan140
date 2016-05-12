@@ -20,12 +20,14 @@ document.addEventListener('keyup', e => {
   }
 });
 
+// Inject button element
 function showControls() {
   const holder = document.createElement('div');
   holder.innerHTML = buttonMarkup;
   document.querySelector('.TweetBoxToolbar-tweetButton').appendChild(holder.children[0]);
 }
 
+// Remove button element
 function hideControls() {
   document.querySelector('.tweet-over-140').remove();
 }
