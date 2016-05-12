@@ -3,45 +3,34 @@ const tweetBox = tweetDialog.querySelector('.tweet-box');
 const tweetButton = tweetDialog.querySelector('button.tweet-action');
 const urlPrefix = 'http://lukechilds.github.io/morethan140/#';
 let over140 = false;
-const buttonMarkup = `
+
+// Inject button
+const holder = document.createElement('div');
+holder.innerHTML = `
 <button type="button" class="btn primary-btn tweet-btn tweet-over-140">
   <span class="button-text tweeting-text">
     <span class="Icon Icon--tweet"></span>Tweet over 140
   </span>
 </button>`;
+const button = holder.children[0];
+tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(button);
 
 // Listen for tweet length
-tweetDialog.addEventListener('keyup', e => {
-    if(e.target.classList.contains('tweet-box')) {
-      const maxReached = tweetDialog.querySelector('.max-reached');
-      if(maxReached && !over140) {
-        over140 = true;
-        showControls();
-      } else if(!maxReached && over140) {
-        over140 = false;
-        hideControls();
-      }
+tweetBox.addEventListener('keyup', () => {
+  const maxReached = tweetDialog.querySelector('.max-reached');
+  if(maxReached && !over140) {
+    over140 = true;
+    button.style.display = 'inline-block';
+  } else if(!maxReached && over140) {
+    over140 = false;
+    button.style.display = 'none';
   }
 });
 
-// Inject button element
-function showControls() {
-  const holder = document.createElement('div');
-  holder.innerHTML = buttonMarkup;
-  tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(holder.children[0]);
-}
-
-// Remove button element
-function hideControls() {
-  tweetDialog.querySelector('.tweet-over-140').remove();
-}
-
 // Process over 140 tweet submissions
-tweetDialog.addEventListener('click', e => {
-  if(e.target.classList.contains('tweet-over-140')) {
-    const encodedText = urlPrefix+encodeURIComponent(tweetBox.innerText);
-    tweetBox.innerText = encodedText;
-    tweetButton.disabled = false;
-    tweetButton.click();
-  }
+button.addEventListener('click', () => {
+  const encodedText = urlPrefix+encodeURIComponent(tweetBox.innerText);
+  tweetBox.innerText = encodedText;
+  tweetButton.disabled = false;
+  tweetButton.click();
 });
