@@ -1,0 +1,8 @@
+.tweet-over-140.tweet-btn {
+  background-color: #2AB33A;
+  background: rgba(42, 179, 58, 0.8);
+}
+
+.tweet-over-140.tweet-btn:hover {
+    background-color: #2AB33A;
+}
