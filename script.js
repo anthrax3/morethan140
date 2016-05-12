@@ -41,7 +41,7 @@ function decodeTweets() {
   for(let i = 0; i < links.length; i++) {
     const link = links[i];
     const expandedUrl = link.getAttribute('data-expanded-url');
-    if(expandedUrl.indexOf(urlPrefix) == 0) {
+    if(expandedUrl && expandedUrl.indexOf(urlPrefix) == 0) {
       const encodedText = expandedUrl.substring(urlPrefix.length);
       const decodedText = decodeURIComponent(encodedText);
       link.parentElement.innerHTML = decodedText;
