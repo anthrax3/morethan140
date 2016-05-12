@@ -1,3 +1,4 @@
+const tweetDialog = document.getElementById('global-tweet-dialog');
 let over140 = false;
 const buttonMarkup = `
 <button type="button" class="btn primary-btn tweet-btn tweet-over-140">
@@ -7,9 +8,9 @@ const buttonMarkup = `
 </button>`;
 
 // Listen for tweet length
-document.addEventListener('keyup', e => {
-  if(e.target.classList.contains('tweet-box')) {
-      const maxReached = document.querySelector('.max-reached');
+tweetDialog.addEventListener('keyup', e => {
+    if(e.target.classList.contains('tweet-box')) {
+      const maxReached = tweetDialog.querySelector('.max-reached');
       if(maxReached && !over140) {
         over140 = true;
         showControls();
@@ -24,10 +25,17 @@ document.addEventListener('keyup', e => {
 function showControls() {
   const holder = document.createElement('div');
   holder.innerHTML = buttonMarkup;
-  document.querySelector('.TweetBoxToolbar-tweetButton').appendChild(holder.children[0]);
+  tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(holder.children[0]);
 }
 
 // Remove button element
 function hideControls() {
-  document.querySelector('.tweet-over-140').remove();
+  tweetDialog.querySelector('.tweet-over-140').remove();
 }
+
+// Process over 140 tweet submissions
+tweetDialog.addEventListener('click', e => {
+  if(e.target.classList.contains('tweet-over-140')) {
+    let text = tweetDialog.querySelector('.tweet-box-shadow').value;
+  }
+});
