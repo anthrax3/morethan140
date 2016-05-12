@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "More than 140",
+  "description": "Allows you to view and send tweets over 140 characters",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+   {
+     "matches": [
+       "http://twitter.com/*",
+       "https://twitter.com/*"
+     ],
+     "css": ["styles.css"],
+     "js": ["script.js"]
+   }
+ ]
+}
