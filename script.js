@@ -1,4 +1,7 @@
 const tweetDialog = document.getElementById('global-tweet-dialog');
+const tweetBox = tweetDialog.querySelector('.tweet-box');
+const tweetButton = tweetDialog.querySelector('button.tweet-action');
+const urlPrefix = 'http://lukechilds.github.io/morethan140/#';
 let over140 = false;
 const buttonMarkup = `
 <button type="button" class="btn primary-btn tweet-btn tweet-over-140">
@@ -36,6 +39,9 @@ function hideControls() {
 // Process over 140 tweet submissions
 tweetDialog.addEventListener('click', e => {
   if(e.target.classList.contains('tweet-over-140')) {
-    let text = tweetDialog.querySelector('.tweet-box-shadow').value;
+    const encodedText = urlPrefix+encodeURIComponent(tweetBox.innerText);
+    tweetBox.innerText = encodedText;
+    tweetButton.disabled = false;
+    tweetButton.click();
   }
 });
