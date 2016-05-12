@@ -14,7 +14,7 @@ holder.innerHTML = `
 const button = holder.children[0];
 tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(button);
 
-// Listen for tweet length
+// Check tweet length
 function checkTweetLength() {
   const maxReached = tweetDialog.querySelector('.max-reached');
   button.style.display = maxReached ? 'inline-block' : 'none';
