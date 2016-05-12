@@ -15,10 +15,12 @@ const button = holder.children[0];
 tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(button);
 
 // Listen for tweet length
-tweetBox.addEventListener('keyup', () => {
+function checkTweetLength() {
   const maxReached = tweetDialog.querySelector('.max-reached');
   button.style.display = maxReached ? 'inline-block' : 'none';
-});
+}
+checkTweetLength();
+tweetBox.addEventListener('keyup', checkTweetLength);
 
 // Process over 140 tweet submissions
 button.addEventListener('click', () => {
