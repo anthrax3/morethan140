@@ -1,5 +1,6 @@
 const tweetDialog = document.getElementById('global-tweet-dialog');
 const tweetBox = tweetDialog.querySelector('.tweet-box');
+const tweetCounter = tweetDialog.querySelector('.tweet-counter');
 const tweetButton = tweetDialog.querySelector('button.tweet-action');
 const urlPrefix = 'http://lukechilds.github.io/morethan140/#';
 
@@ -16,7 +17,7 @@ tweetDialog.querySelector('.TweetBoxToolbar-tweetButton').appendChild(button);
 
 // Check tweet length
 function checkTweetLength() {
-  const maxReached = tweetDialog.querySelector('.max-reached');
+  const maxReached = tweetCounter.classList.contains('max-reached');
   button.style.display = maxReached ? 'inline-block' : 'none';
 }
 checkTweetLength();
