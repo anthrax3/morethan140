@@ -20,8 +20,7 @@ function checkTweetLength() {
   const maxReached = tweetCounter.classList.contains('max-reached');
   button.style.display = maxReached ? 'inline-block' : 'none';
 }
-checkTweetLength();
-tweetBox.addEventListener('keyup', checkTweetLength);
+setInterval(checkTweetLength, 100);
 
 // Process over 140 tweet submissions
 button.addEventListener('click', () => {
