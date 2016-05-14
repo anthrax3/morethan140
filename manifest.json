@@ -13,7 +13,7 @@
        "https://twitter.com/*"
      ],
      "css": ["styles.css"],
-     "js": ["script.js"]
+     "js": ["dist/script.js"]
    }
  ]
 }

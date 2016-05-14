@@ -4,6 +4,8 @@
   "description": "Allows you to view and send tweets over 140 characters",
   "main": "dist/script.js",
   "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "jspm bundle-sfx src/script.js dist/script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
