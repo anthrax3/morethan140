@@ -13,7 +13,7 @@
     "url": "git+https://github.com/lukechilds/morethan140.git"
   },
   "author": "Luke Childs <lukechilds123@gmail.com> (http://lukechilds.co.uk)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lukechilds/morethan140/issues"
   },
