@@ -1,3 +1,5 @@
+import createNode from 'create-node';
+
 export default class MoreThan140 {
 
   constructor(container) {
@@ -16,14 +18,13 @@ export default class MoreThan140 {
   }
 
   injectButton() {
-    const holder = document.createElement('div');
-    holder.innerHTML = `
+    const markup = `
     <button type="button" class="btn primary-btn tweet-btn tweet-over-140">
       <span class="button-text tweeting-text">
         <span class="Icon Icon--tweet"></span>Tweet over 140
       </span>
     </button>`;
-    const button = holder.children[0];
+    const button = createNode(markup);
     button.addEventListener('click', () => {
       this.tweetBox.innerText = this.encodeTweet(this.tweetBox.innerText);
       this.tweetButton.disabled = false;
