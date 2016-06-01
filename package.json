@@ -35,6 +35,9 @@
     }
   },
   "eslintConfig": {
-    "extends": "lukechilds"
+    "extends": "lukechilds",
+    "rules": {
+      "no-new": "off"
+    }
   }
 }
