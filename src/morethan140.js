@@ -9,6 +9,7 @@ export default class MoreThan140 {
     this.tweetButton  = this.find('button.tweet-action');
     this.urlPrefix    = 'http://lukechilds.github.io/morethan140/#';
     this.intervals    = {};
+    this.intervalMs   = 100;
     this.running      = false;
     this.start();
   }
@@ -50,7 +51,7 @@ export default class MoreThan140 {
   start() {
     this.intervals.checkTweetLength = setInterval(() => {
       this.button.style.display = this.moreThan140() ? 'inline-block' : 'none';
-    }, 100);
+    }, this.intervalMs);
 
     this.intervals.decodeTweets = setInterval(() => {
       const links = document.querySelectorAll('.twitter-timeline-link:not(.not-over-140-tweet)');
@@ -63,7 +64,7 @@ export default class MoreThan140 {
           link.classList.add('not-over-140-tweet');
         }
       }
-    }, 100);
+    }, this.intervalMs);
 
     this.button = this.injectButton();
   }
