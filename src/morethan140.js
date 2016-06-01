@@ -58,7 +58,7 @@ export default class MoreThan140 {
       for(let i = 0; i < links.length; i++) {
         const link = links[i];
         const expandedUrl = link.getAttribute('data-expanded-url');
-        if(expandedUrl && expandedUrl.indexOf(this.urlPrefix) == 0) {
+        if(expandedUrl && expandedUrl.indexOf(this.urlPrefix) === 0) {
           link.parentElement.innerHTML = this.decodeTweet(expandedUrl);
         } else {
           link.classList.add('not-over-140-tweet');
