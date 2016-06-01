@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "jspm bundle-sfx src/script.js dist/script.js",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/lukechilds/morethan140#readme",
   "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-lukechilds": "^1.3.0",
     "jspm": "^0.16.34"
   },
   "jspm": {
@@ -30,5 +33,8 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
+  },
+  "eslintConfig": {
+    "extends": "lukechilds"
   }
 }
