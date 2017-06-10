@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/lukechilds/morethan140#readme",
   "devDependencies": {
-    "eslint": "^2.11.1",
+    "eslint": "^3.19.0",
     "eslint-config-lukechilds": "^1.5.0",
     "jspm": "^0.16.34"
   },
